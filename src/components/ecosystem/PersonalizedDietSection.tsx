@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEcosystem } from "@/lib/ecosystem-context";
 
@@ -187,10 +187,9 @@ export function PersonalizedDietSection() {
           </p>
         </div>
 
-        {/* Two-column layout: Form + Benefits */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* LEFT: Form Card */}
-          <div className="lg:col-span-7">
+        {/* Centered Form Card */}
+        <div className="max-w-2xl mx-auto">
+          <div>
             <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 rounded-3xl p-6 sm:p-8 shadow-2xl">
               <ProgressBar step={step} total={6} />
 
@@ -519,64 +518,6 @@ export function PersonalizedDietSection() {
                   </button>
                 )}
               </div>
-            </div>
-          </div>
-
-          {/* RIGHT: Trust Signals */}
-          <div className="lg:col-span-5 space-y-5">
-            {/* Why Dr Natures */}
-            <div className="bg-slate-900/60 border border-slate-700/50 rounded-3xl p-6">
-              <h4 className="text-white font-extrabold text-base mb-4">কেন Dr Natures বেছে নেবেন?</h4>
-              <div className="space-y-3">
-                {[
-                  { icon: "🧬", title: "বিজ্ঞানভিত্তিক পুষ্টি পরিকল্পনা", desc: "প্রতিটি ডায়েট প্ল্যান ক্লিনিক্যালি যাচাইকৃত" },
-                  { icon: "👩‍⚕️", title: "অভিজ্ঞ পুষ্টিবিদ দল", desc: "৫+ বছরের অভিজ্ঞতাসম্পন্ন ক্লিনিক্যাল নিউট্রিশনিস্ট" },
-                  { icon: "📊", title: "১৪,০০০+ সফল রোগী", desc: "সারা বাংলাদেশে প্রমাণিত ফলাফল" },
-                  { icon: "🔄", title: "৩০ দিনের ফলোআপ গ্যারান্টি", desc: "ফলাফল না পেলে সম্পূর্ণ রিফান্ড" },
-                ].map(item => (
-                  <div key={item.icon} className="flex items-start gap-3">
-                    <span className="text-2xl shrink-0">{item.icon}</span>
-                    <div>
-                      <p className="text-white font-bold text-sm">{item.title}</p>
-                      <p className="text-slate-400 text-xs">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Testimonial */}
-            <div className="bg-gradient-to-br from-[#0D4035] to-[#06261E] border border-emerald-800/40 rounded-3xl p-6">
-              <div className="flex items-center gap-1 mb-3">
-                {Array.from({length: 5}).map((_, i) => <span key={i} className="text-[#F59E0B] text-sm">★</span>)}
-                <span className="text-emerald-400 text-xs font-bold ml-2">যাচাইকৃত রিভিউ</span>
-              </div>
-              <p className="text-slate-200 text-sm italic leading-relaxed mb-4">
-                "৩ মাসের প্ল্যানে ১২ কেজি ওজন কমেছে। পুষ্টিবিদ নিয়মিত ফলোআপ করেন, এটা সবচেয়ে বড় সুবিধা।"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#F59E0B]/20 border border-[#F59E0B]/40 flex items-center justify-center text-[#F59E0B] font-black">
-                  F
-                </div>
-                <div>
-                  <p className="text-white font-bold text-sm">Fatema Begum</p>
-                  <p className="text-emerald-400 text-xs">Mirpur, Dhaka · ৩ মাস আগে</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                { value: "14K+", label: "সফল রোগী" },
-                { value: "4.9★", label: "রেটিং" },
-                { value: "98%", label: "সন্তুষ্টি" },
-              ].map(stat => (
-                <div key={stat.label} className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-4 text-center">
-                  <p className="text-[#F59E0B] font-black text-xl">{stat.value}</p>
-                  <p className="text-slate-400 text-[10px] font-semibold mt-0.5">{stat.label}</p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
