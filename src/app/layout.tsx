@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="antialiased min-h-screen bg-background text-foreground font-body selection:bg-[#B39868]/20 selection:text-[#1F2B25]">
         <CartProvider>
           <Navbar />
-          <main className="min-h-screen pt-[68px]">{children}</main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </CartProvider>
       </body>

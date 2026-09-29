@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Mail, Phone, MapPin, Sparkles, Check, MessageSquare } from "lucide-react";
 import { BookingModal } from "@/components/booking/BookingModal";
 import { LabCOAModal } from "@/components/sections/LabCOAModal";
@@ -103,18 +104,26 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-10 lg:gap-12">
           {/* Brand & Address Column */}
           <div className="col-span-2 md:col-span-4 space-y-6">
-            <a href="#" className="inline-block">
-              <div className="flex items-baseline gap-2">
-                <span className="font-editorial text-3xl tracking-wide text-[#FAFBF8]">
-                  Dr Natures
+            <a href="#" className="inline-flex items-center gap-3.5 group">
+              <div className="w-12 h-12 rounded-full p-0.5 bg-gradient-to-br from-[#126336] via-[#B39868] to-[#FAFBF8] overflow-hidden shadow-md shrink-0">
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center p-0.5">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Dr. Natures Emblem"
+                    width={48}
+                    height={48}
+                    className="object-contain scale-110"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-editorial text-2xl tracking-wide text-[#FAFBF8] font-semibold leading-tight">
+                  DR. NATURES
                 </span>
-                <span className="font-editorial text-xl italic text-[#B39868]">
-                  Apothecary
+                <span className="text-[8.5px] font-body tracking-[0.24em] uppercase text-[#B39868] font-semibold mt-0.5">
+                  Art of Living Without Medicine
                 </span>
               </div>
-              <span className="text-[9px] font-body tracking-[0.3em] uppercase text-[#FAFBF8]/50 block mt-1">
-                Dhaka · Pure Botanical Healthcare
-              </span>
             </a>
 
             <p className="font-body text-xs text-[#FAFBF8]/65 leading-relaxed max-w-sm font-light">
