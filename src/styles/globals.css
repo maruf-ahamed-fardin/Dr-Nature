@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/* ─── Luxury Botanical Apothecary Variables ─── */
+@layer base {
+  :root {
+    --background: 48 24% 98%;          /* #FAFBF8 Pearl White */
+    --foreground: 147 16% 15%;         /* #1F2B25 Deep Moss Ink */
+    --card: 0 0% 100%;
+    --card-foreground: 147 16% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 147 16% 15%;
+    --primary: 147 16% 17%;            /* #1F2B25 */
+    --primary-foreground: 48 24% 98%;
+    --secondary: 105 13% 94%;          /* #EEF2ED Mist Green */
+    --secondary-foreground: 147 16% 15%;
+    --muted: 105 13% 94%;              /* #EEF2ED */
+    --muted-foreground: 147 8% 46%;    /* Muted Moss Slate */
+    --accent: 38 33% 55%;              /* #B39868 Champagne Gold */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 25% 85%;              /* Champagne hairline */
+    --input: 38 25% 88%;
+    --ring: 38 33% 55%;
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --mist: #EEF2ED;
+    --pearl: #FAFBF8;
+    --sage: #D8E2DC;
+    --moss: #1F2B25;
+    --gold: #B39868;
+    --gold-hairline: rgba(179, 152, 104, 0.28);
+  }
+
+  .dark {
+    --background: 147 25% 7%;          /* Obsidian Moss #0E1612 */
+    --foreground: 48 24% 95%;          /* Pearl soft */
+    --card: 147 20% 9%;
+    --card-foreground: 48 24% 95%;
+    --primary: 38 33% 55%;             /* Champagne gold primary in dark */
+    --primary-foreground: 147 25% 7%;
+    --secondary: 147 15% 12%;
+    --secondary-foreground: 48 24% 90%;
+    --muted: 147 15% 12%;
+    --muted-foreground: 147 10% 60%;
+    --accent: 38 33% 55%;
+    --accent-foreground: 147 25% 7%;
+    --border: 147 15% 18%;
+    --input: 147 15% 18%;
+    --ring: 38 33% 55%;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #FAFBF8;
+  }
+
+  body {
+    font-family: var(--font-jost), "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #1F2B25;
+    background-color: #FAFBF8;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #B39868;
+    color: #FAFBF8;
+  }
+
+  h1, h2, h3, h4, .font-serif, .font-display {
+    font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* ─── Typography Utility Classes ─── */
+.font-editorial {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-jost), "Jost", sans-serif;
+}
+
+.tracking-apothecary {
+  letter-spacing: 0.22em;
+}
+
+/* ─── Botanical Arch Shapes ─── */
+.arch-card {
+  border-top-left-radius: 140px;
+  border-top-right-radius: 140px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+.arch-hero {
+  border-top-left-radius: 240px;
+  border-top-right-radius: 240px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+/* ─── Hairlines & Gold Borders ─── */
+.border-gold-hairline {
+  border: 1px solid rgba(179, 152, 104, 0.28);
+}
+
+.border-b-gold-hairline {
+  border-bottom: 1px solid rgba(179, 152, 104, 0.28);
+}
+
+.border-t-gold-hairline {
+  border-top: 1px solid rgba(179, 152, 104, 0.28);
+}
+
+/* ─── Ambient Glow & Gradients ─── */
+.ambient-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(179, 152, 104, 0.12) 0%, rgba(238, 242, 237, 0.4) 60%, transparent 100%);
+}
+
+.pearl-gradient {
+  background: linear-gradient(180deg, #FAFBF8 0%, #EEF2ED 100%);
+}
+
+.apothecary-hero-bg {
+  background: radial-gradient(ellipse at 70% 30%, rgba(216, 226, 220, 0.45) 0%, rgba(250, 251, 248, 1) 70%),
+              linear-gradient(180deg, #FAFBF8 0%, #EEF2ED 100%);
+}
+
+/* ─── Rotating Circular Seal ─── */
+@keyframes spinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-seal {
+  animation: spinClockwise 24s linear infinite;
+}
+
+/* ─── Marquee Animation ─── */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── App Container ─── */
+.container-app {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-app {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
