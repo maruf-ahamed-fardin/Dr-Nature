@@ -1,62 +1,59 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "../styles/globals.css";
+import { EcosystemProvider } from "@/lib/ecosystem-context";
 import { CartProvider } from "@/lib/cart-context";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "600", "700", "800"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-playfair",
   display: "swap",
 });
 
-const jost = Jost({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   style: ["normal", "italic"],
-  variable: "--font-jost",
+  variable: "--font-jakarta",
   display: "swap",
 });
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: {
-    default: "Dr Natures | Pure Botanical Apothecary & Clinical Nutrition",
+    default: "Dr Natures | Premium Healthcare Ecosystem",
     template: "%s | Dr Natures",
   },
   description:
-    "Bangladesh's premier luxury natural healthcare brand. Small-batch lab-tested supplements, certified clinical nutrition consultations, and evidence-based wellness literature.",
-  keywords: ["natural healthcare", "botanical apothecary", "Shilajit", "Ashwagandha", "nutrition consultation", "Dhaka", "Bangladesh"],
-  authors: [{ name: "Dr Natures Healthcare Ltd" }],
-  creator: "Dr Natures Healthcare Ltd",
-  metadataBase: new URL("https://drnatures.com"),
-  openGraph: {
-    type: "website",
-    locale: "en_BD",
-    url: "https://drnatures.com",
-    siteName: "Dr Natures Apothecary",
-    title: "Dr Natures | Pure Botanical Apothecary & Clinical Nutrition",
-    description: "Bangladesh's premier luxury natural healthcare brand. Lab-tested adaptogens and personalized clinical protocols.",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Dr Natures Botanical Apothecary" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Dr Natures Apothecary",
-    description: "Pure by nature. Clinically verified botanical healthcare in Bangladesh.",
-  },
-  robots: { index: true, follow: true },
+    "Integrated healthcare and clinical nutrition ecosystem in Bangladesh. BMDC registered doctors, organic supplements, medical books, and personalized lifestyle recovery protocols.",
+  keywords: ["natural healthcare", "PCOS", "diabetes", "clinical nutrition", "organic honey", "black seed oil", "Dhaka", "Bangladesh"],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`} suppressHydrationWarning>
-      <body className="antialiased min-h-screen bg-background text-foreground font-body selection:bg-[#B39868]/20 selection:text-[#1F2B25]">
+    <html lang="en" className={`${playfair.variable} ${jakarta.variable} scroll-smooth`} suppressHydrationWarning>
+      <head>
+        {/* FontAwesome 6 for pixel-perfect icons matching user design */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+      </head>
+      <body className="antialiased min-h-screen bg-[#FDFBF7] text-[#1E293B] font-sans selection:bg-[#F59E0B]/20 selection:text-[#06261E] overflow-x-hidden relative">
         <CartProvider>
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          <EcosystemProvider>
+            {children}
+          </EcosystemProvider>
         </CartProvider>
       </body>
     </html>

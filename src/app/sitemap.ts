@@ -6,17 +6,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes = [
     "",
+    "/services",
     "/shop",
-    "/booking",
-    "/consultants",
+    "/appointment",
     "/blog",
     "/about",
-    "/contact",
+    "/consultations",
+    "/formulations",
+    "/science",
+    "/reviews",
+    "/journal",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: route === "" ? 1.0 : 0.8,
+    priority: route === "" ? 1.0 : 0.85,
   }));
 
   const productRoutes = DEMO_PRODUCTS.map((p) => ({

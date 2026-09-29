@@ -1,9 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Clock, Video, Building2, Sparkles, CheckCircle2 } from "lucide-react";
+import {
+  ArrowUpRight,
+  Clock,
+  Video,
+  Building2,
+  Sparkles,
+  CheckCircle2,
+  Calendar,
+  MessageSquare,
+  UserCheck,
+  Stethoscope,
+} from "lucide-react";
 import { BookingModal } from "@/components/booking/BookingModal";
+import { DEMO_CONSULTANTS } from "@/lib/demo-data";
 
 interface ServiceRow {
   number: string;
@@ -14,6 +27,17 @@ interface ServiceRow {
   format: string;
   price: string;
   badge?: string;
+}
+
+export interface ConsultantItem {
+  id: string;
+  bio: string;
+  specialization: string;
+  imageUrl?: string;
+  user: {
+    name: string;
+    email: string;
+  };
 }
 
 const CONSULTATIONS: ServiceRow[] = [
@@ -57,27 +81,31 @@ const CONSULTATIONS: ServiceRow[] = [
   },
 ];
 
-export function ConsultationList() {
+export function ConsultationList({
+  consultants = DEMO_CONSULTANTS,
+}: {
+  consultants?: ConsultantItem[];
+}) {
   const [bookingIndex, setBookingIndex] = useState<number | null>(null);
 
   return (
-    <section id="consultations" className="py-28 md:py-36 bg-[#FAFBF8] relative overflow-hidden">
+    <section id="consultations" className="py-16 sm:py-24 md:py-36 bg-[#FAFBF8] relative overflow-hidden">
       {/* Decorative ambient background accents */}
       <div className="absolute top-10 right-0 w-[450px] h-[450px] rounded-full bg-[#EEF2ED]/70 blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 left-0 w-[400px] h-[400px] rounded-full bg-[#E8EEF5]/40 blur-3xl pointer-events-none" />
 
       <div className="container-app relative z-10">
         {/* Section Editorial Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 sm:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-6">
           <div className="max-w-2xl">
-            <span className="text-[11px] font-body tracking-[0.28em] uppercase text-[#B39868] font-medium block mb-3">
+            <span className="text-[10px] sm:text-[11px] font-body tracking-[0.24em] sm:tracking-[0.28em] uppercase text-[#B39868] font-medium block mb-2 sm:mb-3">
               ✦ Certified Nutritionist Consultations · Dhaka Clinic
             </span>
-            <h2 className="font-editorial text-4xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-[1.05]">
+            <h2 className="font-editorial text-3xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-[1.08] sm:leading-[1.05]">
               Personalized Guidance, <br />
               <span className="italic text-[#B39868]">Rooted in Biochemistry.</span>
             </h2>
-            <p className="font-body text-[#14221A]/70 text-xs sm:text-base font-light mt-4 leading-relaxed">
+            <p className="font-body text-[#14221A]/70 text-xs sm:text-base font-light mt-3 sm:mt-4 leading-relaxed">
               Every body possesses a unique metabolic signature. Our licensed clinical nutritionists formulate individualized botanical therapies and dietary frameworks to re-establish physiological harmony.
             </p>
           </div>
@@ -109,7 +137,7 @@ export function ConsultationList() {
             >
               <div
                 onClick={() => setBookingIndex(index)}
-                className="group block relative border-b border-[#B39868]/25 py-8 sm:py-10 px-4 sm:px-8 transition-all duration-500 hover:bg-[#EEF2ED]/60 rounded-xl cursor-pointer"
+                className="group block relative border-b border-[#B39868]/25 py-6 sm:py-10 px-3 sm:px-8 transition-all duration-500 hover:bg-[#EEF2ED]/60 rounded-xl cursor-pointer"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   {/* Left Column: Number & Classification */}
@@ -168,6 +196,109 @@ export function ConsultationList() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* ─── Improved Doctor & Practitioner Faculty Panel (Using Available Data) ─── */}
+        <div className="mt-16 sm:mt-24 pt-12 border-t border-[#B39868]/25">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
+            <div>
+              <span className="text-[10px] sm:text-[11px] font-body tracking-[0.24em] uppercase text-[#126336] font-semibold block mb-2">
+                ✦ Clinical Faculty · Certified Nutrition Practitioners
+              </span>
+              <h3 className="font-editorial text-2xl sm:text-4xl text-[#14221A] font-light">
+                Consult Directly With Our <span className="italic text-[#126336]">Medical Team</span>
+              </h3>
+            </div>
+            <p className="text-xs font-body text-[#14221A]/65 max-w-md">
+              Every practitioner is certified, holding credentials in functional medicine, clinical dietetics, or botanical pharmacology.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {consultants.map((doc, idx) => (
+              <motion.div
+                key={doc.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="bg-white rounded-3xl border border-[#B39868]/35 p-6 sm:p-7 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  {/* Doctor Portrait & Status */}
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden border-2 border-[#B39868]/40 shrink-0 shadow-sm">
+                      {doc.imageUrl ? (
+                        <Image
+                          src={doc.imageUrl}
+                          alt={doc.user.name}
+                          fill
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-[#126336]/10 flex items-center justify-center text-[#126336]">
+                          <Stethoscope className="w-7 h-7" />
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#126336]/10 border border-[#126336]/20 text-[#126336] text-[9.5px] font-body tracking-wider uppercase font-semibold mb-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#126336]" />
+                        <span>Verified Practitioner</span>
+                      </div>
+                      <h4 className="font-editorial text-xl text-[#14221A] font-semibold leading-tight group-hover:text-[#126336] transition-colors">
+                        {doc.user.name}
+                      </h4>
+                      <p className="text-[11px] font-body text-[#B39868] font-medium mt-0.5">
+                        {doc.specialization}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Doctor Bio */}
+                  <p className="text-xs font-body text-[#14221A]/75 font-light leading-relaxed mb-6">
+                    {doc.bio}
+                  </p>
+
+                  {/* Practice Attributes */}
+                  <div className="space-y-1.5 pb-6 border-b border-[#B39868]/20 text-[11px] font-body text-[#14221A]/70">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#126336]" />
+                      <span>Individualized Botanical &amp; Nutrition Protocols</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#126336]" />
+                      <span>Encrypted Video Call &amp; In-Clinic Dhaka Visit</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Booking & Direct Inquiry Actions */}
+                <div className="pt-4 flex items-center gap-2.5">
+                  <button
+                    onClick={() => setBookingIndex(0)}
+                    className="flex-1 py-2.5 px-4 rounded-full bg-[#126336] hover:bg-[#14221A] text-white text-[11px] font-body tracking-[0.16em] uppercase font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <Calendar className="w-3.5 h-3.5 text-[#B39868]" />
+                    <span>Book Session</span>
+                  </button>
+
+                  <a
+                    href={`https://wa.me/8801700000000?text=Hello%20Dr%20Natures%20Clinic,%20I%20would%20like%20to%20consult%20with%20${encodeURIComponent(
+                      doc.user.name
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`Inquire with ${doc.user.name} on WhatsApp`}
+                    className="w-10 h-10 rounded-full border border-emerald-600/30 bg-emerald-50 hover:bg-[#126336] text-[#126336] hover:text-white transition-colors flex items-center justify-center shrink-0 shadow-sm"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom Assurance Note */}

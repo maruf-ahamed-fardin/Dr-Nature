@@ -39,7 +39,7 @@ export function LabCOAModal({ isOpen, onClose }: LabCOAModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-3xl bg-[#FAFBF8] border border-[#B39868]/40 rounded-2xl shadow-2xl overflow-hidden z-10 my-8"
+            className="relative w-full max-w-3xl bg-[#FAFBF8] border border-[#B39868]/40 rounded-2xl shadow-2xl overflow-y-auto max-h-[92vh] z-10 my-4 sm:my-8"
           >
             {/* Header */}
             <div className="p-6 sm:p-8 bg-[#14221A] text-[#FAFBF8] border-b border-[#B39868]/40 flex items-start justify-between relative overflow-hidden">

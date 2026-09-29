@@ -112,20 +112,20 @@ export function RemedyQuizSection() {
   };
 
   return (
-    <section id="quiz" className="py-28 md:py-36 bg-[#14221A] text-[#FAFBF8] relative overflow-hidden">
+    <section id="quiz" className="py-16 sm:py-24 md:py-36 bg-[#14221A] text-[#FAFBF8] relative overflow-hidden">
       {/* Decorative botanical ambient glows */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#B39868]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[450px] h-[450px] rounded-full bg-[#EEF2ED]/5 blur-3xl pointer-events-none" />
 
       <div className="container-app relative z-10 max-w-4xl">
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <span className="text-[11px] font-body tracking-[0.28em] uppercase text-[#B39868] font-medium inline-flex items-center gap-2 mb-3">
+        <div className="text-center mb-10 sm:mb-14">
+          <span className="text-[10px] sm:text-[11px] font-body tracking-[0.24em] sm:tracking-[0.28em] uppercase text-[#B39868] font-medium inline-flex items-center gap-2 mb-2 sm:mb-3">
             <span>✦</span>
             <span>Intelligent Formulation Matcher</span>
             <span>✦</span>
           </span>
-          <h2 className="font-editorial text-4xl sm:text-5xl md:text-6xl text-white font-light leading-none">
+          <h2 className="font-editorial text-3xl sm:text-5xl md:text-6xl text-white font-light leading-none">
             Find Your <span className="italic text-[#B39868]">Botanical Protocol</span>
           </h2>
           <p className="font-body text-[#FAFBF8]/70 text-xs sm:text-sm font-light mt-3 max-w-lg mx-auto">
@@ -133,7 +133,7 @@ export function RemedyQuizSection() {
           </p>
 
           {/* Progress Indicators */}
-          <div className="flex items-center justify-center gap-3 mt-8">
+          <div className="flex items-center justify-center gap-3 mt-6 sm:mt-8">
             <div className={`h-1.5 rounded-full transition-all duration-300 ${step >= 1 ? "w-10 bg-[#B39868]" : "w-4 bg-white/20"}`} />
             <div className={`h-1.5 rounded-full transition-all duration-300 ${step >= 2 ? "w-10 bg-[#B39868]" : "w-4 bg-white/20"}`} />
             <div className={`h-1.5 rounded-full transition-all duration-300 ${step >= 3 ? "w-10 bg-[#B39868]" : "w-4 bg-white/20"}`} />
@@ -141,7 +141,7 @@ export function RemedyQuizSection() {
         </div>
 
         {/* Dynamic Card Steps */}
-        <div className="bg-[#1F2B25]/80 border border-[#B39868]/35 rounded-3xl p-6 sm:p-10 backdrop-blur-md shadow-2xl">
+        <div className="bg-[#1F2B25]/80 border border-[#B39868]/35 rounded-3xl p-5 sm:p-10 backdrop-blur-md shadow-2xl">
           <AnimatePresence mode="wait">
             {step === 1 && (
               <motion.div
@@ -185,10 +185,10 @@ export function RemedyQuizSection() {
                   })}
                 </div>
 
-                <div className="pt-6 flex justify-end">
+                <div className="pt-4 sm:pt-6 flex justify-end">
                   <button
                     onClick={() => setStep(2)}
-                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#B39868] text-[#14221A] text-xs font-body tracking-[0.2em] uppercase font-semibold hover:bg-white transition-colors"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#B39868] text-[#14221A] text-xs font-body tracking-[0.2em] uppercase font-semibold hover:bg-white transition-colors"
                   >
                     <span>Proceed to Step 2</span>
                     <ArrowRight className="w-4 h-4" />
@@ -239,17 +239,17 @@ export function RemedyQuizSection() {
                   })}
                 </div>
 
-                <div className="pt-6 flex items-center justify-between">
+                <div className="pt-4 sm:pt-6 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
                   <button
                     onClick={() => setStep(1)}
-                    className="inline-flex items-center gap-1.5 text-xs font-body tracking-wider uppercase text-[#FAFBF8]/60 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-body tracking-wider uppercase text-[#FAFBF8]/60 hover:text-white transition-colors py-2"
                   >
                     <span>Back</span>
                   </button>
 
                   <button
                     onClick={() => setStep(3)}
-                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#B39868] text-[#14221A] text-xs font-body tracking-[0.2em] uppercase font-semibold hover:bg-white transition-colors"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#B39868] text-[#14221A] text-xs font-body tracking-[0.2em] uppercase font-semibold hover:bg-white transition-colors"
                   >
                     <span>Calculate Botanical Match</span>
                     <Sparkles className="w-4 h-4" />

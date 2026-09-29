@@ -1,4 +1,4 @@
-"use client";
+// Server Component — pure CSS marquee animation, zero client JS
 
 const INGREDIENTS = [
   { name: "Himalayan Shilajit", note: "Grade-A Resin · 85+ Minerals" },
@@ -15,7 +15,7 @@ export function IngredientMarquee() {
   const repeated = [...INGREDIENTS, ...INGREDIENTS];
 
   return (
-    <div className="relative w-full py-5 bg-[#EEF2ED] border-y border-[#B39868]/25 overflow-hidden select-none">
+    <div className="relative w-full max-w-full py-5 bg-[#EEF2ED] border-y border-[#B39868]/25 overflow-hidden select-none">
       <div className="animate-marquee-infinite flex items-center gap-12 whitespace-nowrap">
         {repeated.map((item, idx) => (
           <div key={idx} className="flex items-center gap-6 shrink-0">

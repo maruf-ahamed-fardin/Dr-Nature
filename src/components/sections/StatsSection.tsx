@@ -1,7 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
-
+// Server Component — pure SSR for instant rendering without client hydration overhead
 interface StatItem {
   value: string;
   suffix?: string;
@@ -50,16 +47,8 @@ export function StatsSection() {
         {/* Thin-Line Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#B39868]/30 border-y sm:border-y-0 border-[#B39868]/30">
           {STATS.map((stat, i) => (
-            <motion.div
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.8,
-                delay: i * 0.12,
-                ease: [0.16, 1, 0.3, 1],
-              }}
               className="py-10 px-6 lg:px-8 text-center sm:text-left flex flex-col justify-between group hover:bg-[#EEF2ED]/40 transition-colors duration-500"
             >
               <div>
@@ -91,7 +80,7 @@ export function StatsSection() {
                 <span>N° 0{i + 1}</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">✦ Certified</span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -9,7 +9,7 @@ export function ClosingCTA() {
   const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
-    <section className="py-28 md:py-36 bg-[#EEF2ED]/60 relative overflow-hidden">
+    <section className="py-16 sm:py-24 md:py-36 bg-[#EEF2ED]/60 relative overflow-hidden">
       {/* Decorative ambient color spots */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#D8E2DC]/40 blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#E8EEF5]/40 blur-3xl pointer-events-none" />
@@ -21,7 +21,7 @@ export function ClosingCTA() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative arch-card border border-[#B39868]/40 bg-gradient-to-b from-[#FAFBF8] via-[#FAFBF8] to-[#EEF2ED] p-10 sm:p-16 lg:p-20 text-center shadow-[0_24px_70px_rgba(20,34,26,0.06)] overflow-hidden"
+          className="relative arch-card border border-[#B39868]/40 bg-gradient-to-b from-[#FAFBF8] via-[#FAFBF8] to-[#EEF2ED] p-6 sm:p-14 lg:p-20 text-center shadow-[0_24px_70px_rgba(20,34,26,0.06)] overflow-hidden"
         >
           {/* Subtle inner double border arch */}
           <div className="absolute inset-3 arch-card border border-[#B39868]/20 pointer-events-none" />
@@ -31,14 +31,14 @@ export function ClosingCTA() {
             <div className="w-12 h-12 rounded-full border border-[#B39868]/40 bg-[#FAFBF8] mx-auto flex items-center justify-center text-[#B39868] shadow-sm mb-4">
               <span className="font-editorial text-lg italic">DN</span>
             </div>
-            <span className="text-[11px] font-body tracking-[0.28em] uppercase text-[#B39868] font-medium block">
+            <span className="text-[10px] sm:text-[11px] font-body tracking-[0.24em] sm:tracking-[0.28em] uppercase text-[#B39868] font-medium block">
               ✦ The Journey to Vitality Begins Here ✦
             </span>
           </div>
 
           {/* Main Headline */}
           <div className="relative z-10 max-w-3xl mx-auto mb-6">
-            <h2 className="font-editorial text-4xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-[1.08] tracking-tight">
+            <h2 className="font-editorial text-3xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-[1.08] tracking-tight">
               Pure by nature. <br />
               <span className="italic font-light text-[#B39868]">
                 Restored by clinical intention.

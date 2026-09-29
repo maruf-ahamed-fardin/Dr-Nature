@@ -1,124 +1,74 @@
-// ✅ SERVER COMPONENT — SSR, no "use client"
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { ArrowUpRight } from "lucide-react";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { IngredientMarquee } from "@/components/sections/IngredientMarquee";
-import { PhilosophySection } from "@/components/sections/PhilosophySection";
-import { FeaturedProducts } from "@/components/shop/FeaturedProducts";
-import { StatsSection } from "@/components/sections/StatsSection";
-import { RemedyQuizSection } from "@/components/sections/RemedyQuizSection";
-import { ConsultationList } from "@/components/sections/ConsultationList";
-import { PurityProcessSection } from "@/components/sections/PurityProcessSection";
-import { TestimonialSection } from "@/components/sections/TestimonialSection";
-import { FAQSection } from "@/components/sections/FAQSection";
-import { BlogPreview } from "@/components/sections/BlogPreview";
-import { ClosingCTA } from "@/components/sections/ClosingCTA";
-import { ProductCardSkeleton, BlogCardSkeleton } from "@/components/ui/spinner";
-import { api } from "@/lib/api";
-import { DEMO_PRODUCTS, DEMO_BLOGS } from "@/lib/demo-data";
+import { TopAnnouncementBar } from "@/components/ecosystem/TopAnnouncementBar";
+import { EcosystemHeader } from "@/components/ecosystem/EcosystemHeader";
+import { EcosystemHero } from "@/components/ecosystem/EcosystemHero";
+import { ConnectedEcosystemSection } from "@/components/ecosystem/ConnectedEcosystemSection";
+import { DoctorServicesSection } from "@/components/ecosystem/DoctorServicesSection";
+import { ConsultationPackagesSection } from "@/components/ecosystem/ConsultationPackagesSection";
+import { ApothecaryShopSection } from "@/components/ecosystem/ApothecaryShopSection";
+import { HealthToolsHubSection } from "@/components/ecosystem/HealthToolsHubSection";
+import { ClinicalJournalSection } from "@/components/ecosystem/ClinicalJournalSection";
+import { EcosystemVideoReviewsSection } from "@/components/ecosystem/EcosystemVideoReviewsSection";
+import { CustomerPortalSection } from "@/components/ecosystem/CustomerPortalSection";
+import { EcosystemFooter } from "@/components/ecosystem/EcosystemFooter";
+import { ModalsAndDrawers } from "@/components/ecosystem/ModalsAndDrawers";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Dr Natures | Pure Botanical Apothecary & Clinical Nutrition",
+  title: "Dr Natures | Premium Healthcare Ecosystem",
   description:
-    "Luxury botanical apothecary and certified functional nutrition clinic in Dhaka. Lab-tested adaptogens, Himalayan Shilajit, KSM-66 Ashwagandha, and personalized dietary protocols.",
+    "Integrated clinical consultations, specialized reversal protocols, certified natural apothecary, and interactive health calculators in Bangladesh.",
 };
 
-// Revalidate every 60 seconds (ISR)
 export const revalidate = 60;
 
-export default async function HomePage() {
-  // Server-side data fetching — falls back gracefully to rich demo catalog if API is offline
-  const [featuredData] = await Promise.all([
-    api.featuredProducts(8).catch(() => null),
-  ]);
-
-  // Use all products so category filters have full variety
-  const products = featuredData?.data && featuredData.data.length > 0 ? featuredData.data : DEMO_PRODUCTS;
-
+export default function HomePage() {
   return (
-    <div className="bg-[#FAFBF8] text-[#14221A] antialiased selection:bg-[#B39868]/20 selection:text-[#14221A]">
-      {/* 1. Hero Section: Arch window + Animated Botanical Line Drawing + Rotating Seal + Glow */}
-      <HeroSection />
+    <div className="bg-[#FDFBF7] text-[#1E293B] antialiased">
+      {/* 1. Top Bar: Helpline, Consultation Hours, Currency Switcher & Patient Portal */}
+      <TopAnnouncementBar />
 
-      {/* 2. Ingredient Marquee: Sacred Herbs & Adaptogens ticker */}
-      <IngredientMarquee />
+      {/* 2. Glass Header: Logo, Nav, Search, Cart Drawer, Wishlist, Book Visit */}
+      <EcosystemHeader />
 
-      {/* 3. Scroll-Highlighted Philosophy Section: Word-by-word illuminated manifesto */}
-      <PhilosophySection />
+      <main>
+        {/* 3. Hero Section: Quick Launcher, Trust Stats, Doctor Visual */}
+        <EcosystemHero />
 
-      {/* 4. Arch-Shaped Product Cards with Category Filter Tabs, Quick View, and Cart Drawer */}
-      <Suspense
-        fallback={
-          <div className="py-24 container-app grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <ProductCardSkeleton key={i} />
-            ))}
-          </div>
-        }
-      >
-        <FeaturedProducts products={products} />
-      </Suspense>
+        {/* 4. Connected Ecosystem Model: 4-Step Clinical Framework */}
+        <ConnectedEcosystemSection />
 
-      {/* 5. Thin-Line Stats Row: Champagne Hairlines & Cormorant Garamond Light figures */}
-      <StatsSection />
+        {/* 5. Doctor Services & Specialist Finder */}
+        <DoctorServicesSection />
 
-      {/* 6. Interactive Botanical Remedy Finder / Wellness Quiz */}
-      <RemedyQuizSection />
+        {/* 6. Specialized Healthcare Packages: PCOS, Diabetes, Body Transformation */}
+        <ConsultationPackagesSection />
 
-      {/* 7. Consultation List with Hairline Rows & Interactive 3-Step Booking Modal */}
-      <ConsultationList />
+        {/* 7. Dr Natures Apothecary: Books, Supplements, Herbal & Bundles */}
+        <ApothecaryShopSection />
 
-      {/* 8. Uncompromising Botanical Science: Sourcing to Bottle 4-Pillar Journey + Lab COA Inspector */}
-      <PurityProcessSection />
+        {/* 8. Health Tools Hub: Interactive BMI, BMR, Water & PCOS Risk Calculators */}
+        <HealthToolsHubSection />
 
-      {/* 9. Single Large Rotating Testimonial: Editorial layout with oversized quotation marks */}
-      <TestimonialSection />
+        {/* 9. Official YouTube Video Stories & Case Reviews */}
+        <EcosystemVideoReviewsSection />
 
-      {/* 10. Frequently Inquired Questions: Interactive Accordion */}
-      <FAQSection />
+        {/* 10. Clinical Journal: Evidence-Based Health Guidance */}
+        <ClinicalJournalSection />
 
-      {/* 11. Evidence-Based Botanical Journal / Blog Preview with Interactive Article Reader Modal */}
-      <section id="journal" className="py-28 md:py-36 bg-[#FAFBF8] border-t border-[#B39868]/20 relative">
-        <div className="container-app">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <span className="text-[11px] font-body tracking-[0.28em] uppercase text-[#B39868] font-medium block mb-2">
-                ✦ The Clinical Journal · Peer-Reviewed
-              </span>
-              <h2 className="font-editorial text-4xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-none">
-                Evidence-Based <span className="italic text-[#B39868]">Readings</span>
-              </h2>
-              <p className="font-body text-[#14221A]/70 text-xs sm:text-sm font-light mt-3 max-w-md">
-                Essays on clinical biochemistry, adaptogen pharmacokinetics, and functional nutrition protocols. Tap any study to view findings.
-              </p>
-            </div>
+        {/* 12. Customer Account Portal Preview */}
+        <CustomerPortalSection />
 
-            <a
-              href="#formulations"
-              className="inline-flex items-center gap-2 text-xs font-body tracking-[0.22em] uppercase text-[#14221A] hover:text-[#B39868] transition-colors pb-1 border-b border-[#B39868]/40 self-start md:self-auto"
-            >
-              <span>Explore Related Formulations</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#B39868]" />
-            </a>
-          </div>
+      </main>
 
-          <Suspense
-            fallback={
-              <div className="grid md:grid-cols-3 gap-8">
-                {Array.from({ length: 3 }).map((_, i) => (
-                  <BlogCardSkeleton key={i} />
-                ))}
-              </div>
-            }
-          >
-            <BlogPreview blogs={DEMO_BLOGS} />
-          </Suspense>
-        </div>
-      </section>
+      {/* 12. Mega Footer: Brand Bio, Services, Apothecary & BD Payment Gateways */}
+      <EcosystemFooter />
 
-      {/* 12. Closing CTA: Apothecary Arch Pavilion */}
-      <ClosingCTA />
+      {/* 13. Interactive Modals: Toast Notifications, Booking, Quick View, Cart Drawer, Search & AI Assistant */}
+      <ModalsAndDrawers />
+
+      {/* Floating WhatsApp Button */}
+      <WhatsAppButton />
     </div>
   );
 }

@@ -51,23 +51,23 @@ export function FAQSection() {
   };
 
   return (
-    <section className="py-28 md:py-36 bg-[#EEF2ED]/40 border-t border-[#B39868]/20 relative overflow-hidden">
+    <section id="faq" className="py-16 sm:py-24 md:py-36 bg-[#EEF2ED]/40 border-t border-[#B39868]/20 relative overflow-hidden">
       <div className="container-app relative z-10 max-w-4xl">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-[11px] font-body tracking-[0.28em] uppercase text-[#B39868] font-medium block mb-3">
+        <div className="text-center mb-10 sm:mb-16">
+          <span className="text-[10px] sm:text-[11px] font-body tracking-[0.24em] sm:tracking-[0.28em] uppercase text-[#B39868] font-medium block mb-2 sm:mb-3">
             ✦ Clinical Answers & Reassurance ✦
           </span>
-          <h2 className="font-editorial text-4xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-none">
+          <h2 className="font-editorial text-3xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-none">
             Frequently Inquired <span className="italic text-[#B39868]">Questions</span>
           </h2>
-          <p className="font-body text-[#14221A]/70 text-xs sm:text-sm font-light mt-4 max-w-md mx-auto">
+          <p className="font-body text-[#14221A]/70 text-xs sm:text-sm font-light mt-3 sm:mt-4 max-w-md mx-auto">
             Everything you need to know about our sourcing, clinical consultations, lab verification, and delivery.
           </p>
         </div>
 
         {/* Accordion List */}
-        <div className="space-y-4">
+        <div className="space-y-3.5 sm:space-y-4">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
 
@@ -82,14 +82,14 @@ export function FAQSection() {
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full p-6 sm:p-7 text-left flex items-start justify-between gap-4 focus:outline-none"
+                  className="w-full p-5 sm:p-7 text-left flex items-start justify-between gap-3 sm:gap-4 focus:outline-none"
                   aria-expanded={isOpen}
                 >
                   <div>
                     <span className="text-[9px] font-body tracking-[0.22em] uppercase text-[#B39868] block mb-1">
                       {faq.category}
                     </span>
-                    <h3 className="font-editorial text-xl sm:text-2xl text-[#14221A] font-light leading-snug">
+                    <h3 className="font-editorial text-lg sm:text-2xl text-[#14221A] font-light leading-snug">
                       {faq.question}
                     </h3>
                   </div>
