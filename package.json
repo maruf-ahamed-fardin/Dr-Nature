@@ -1,0 +1,15 @@
+{
+  "name": "dr-natures",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "next dev apps/web",
+    "dev:web": "next dev apps/web",
+    "build": "next build apps/web",
+    "build:web": "next build apps/web",
+    "start": "next start apps/web"
+  }
+}
