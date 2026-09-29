@@ -8,26 +8,26 @@ import { BookingModal } from "@/components/booking/BookingModal";
 import { LabCOAModal } from "@/components/sections/LabCOAModal";
 
 const FOOTER_COLUMNS = {
-  Formulations: [
-    { label: "Lab-Tested Adaptogens", href: "#formulations" },
-    { label: "Himalayan Shilajit Resin", href: "#formulations" },
-    { label: "KSM-66 Ashwagandha", href: "#formulations" },
-    { label: "Organic Moringa Powder", href: "#formulations" },
-    { label: "Cold-Pressed Kalonji Oil", href: "#formulations" },
+  Services: [
+    { label: "Consultation Packages", href: "/services" },
+    { label: "Book Appointment", href: "/appointment" },
+    { label: "Private Tele-Nutrition", href: "/services" },
+    { label: "Dhaka In-Clinic Visit", href: "/services" },
+    { label: "4-Week Microbiome Protocol", href: "/services" },
   ],
-  Consultations: [
-    { label: "Private Tele-Nutrition", href: "#consultations" },
-    { label: "Dhaka In-Clinic Visit", href: "#consultations" },
-    { label: "4-Week Microbiome Protocol", href: "#consultations" },
-    { label: "Certified Nutritionist Panel", href: "#consultations" },
-    { label: "Intelligent Remedy Matcher", href: "#quiz" },
+  Shop: [
+    { label: "Botanical Dispensary", href: "/shop" },
+    { label: "Himalayan Shilajit Resin", href: "/shop" },
+    { label: "KSM-66 Ashwagandha", href: "/shop" },
+    { label: "Organic Moringa Powder", href: "/shop" },
+    { label: "Health Products & Books", href: "/shop" },
   ],
-  Science: [
-    { label: "Ancestral Manifesto", href: "#manifesto" },
-    { label: "Seed-to-Bottle Purity", href: "#purity" },
-    { label: "Clinical Journal Studies", href: "#journal" },
-    { label: "Patient Transformations", href: "#testimonials" },
-    { label: "Frequently Inquired FAQ", href: "#faq" },
+  Company: [
+    { label: "About Us & Faculty", href: "/about" },
+    { label: "Medical Team & Qualifications", href: "/about" },
+    { label: "Blog & Health Tips", href: "/blog" },
+    { label: "Verified Video Reviews", href: "/reviews" },
+    { label: "Purity & Lab Science", href: "/science" },
   ],
 };
 
@@ -74,7 +74,7 @@ export function Footer() {
                   </span>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex items-center gap-2">
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-2">
                   <input
                     type="email"
                     value={email}
@@ -85,7 +85,7 @@ export function Footer() {
                   />
                   <button
                     type="submit"
-                    className="shrink-0 px-6 py-3.5 rounded-full bg-[#B39868] hover:bg-[#FAFBF8] text-[#14221A] text-xs font-medium tracking-[0.2em] uppercase transition-all duration-300 shadow-md font-body"
+                    className="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-full bg-[#B39868] hover:bg-[#FAFBF8] text-[#14221A] text-xs font-medium tracking-[0.2em] uppercase transition-all duration-300 shadow-md font-body text-center"
                   >
                     Join
                   </button>
@@ -174,12 +174,12 @@ export function Footer() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-xs font-body text-[#FAFBF8]/65 hover:text-[#B39868] transition-colors leading-relaxed block font-light"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

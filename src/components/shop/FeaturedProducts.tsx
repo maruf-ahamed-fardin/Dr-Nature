@@ -50,7 +50,7 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
   };
 
   return (
-    <section id="formulations" className="py-28 md:py-36 bg-[#FAFBF8] border-t border-[#B39868]/20 relative">
+    <section id="formulations" className="py-16 sm:py-24 md:py-36 bg-[#FAFBF8] border-t border-[#B39868]/20 relative">
       {/* Decorative ambient background */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#EEF2ED]/50 blur-3xl pointer-events-none" />
 
@@ -129,14 +129,15 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
                         </span>
                       </div>
 
-                      {/* Quick View Button (Top Right on Hover) */}
+                      {/* Quick View Button (Visible on mobile, top right on hover for desktop) */}
                       <button
                         onClick={(e) => {
                           e.preventDefault();
                           setQuickViewProduct(product);
                         }}
-                        className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/90 border border-[#B39868]/40 flex items-center justify-center text-[#14221A] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md hover:bg-[#14221A] hover:text-white"
+                        className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-white/95 border border-[#B39868]/40 flex items-center justify-center text-[#14221A] opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 shadow-md hover:bg-[#14221A] hover:text-white"
                         title="Quick View Formulation"
+                        aria-label="Quick View Formulation"
                       >
                         <Eye className="w-3.5 h-3.5" />
                       </button>
@@ -188,13 +189,13 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
                           )}
                         </div>
 
-                        {/* Mobile Add to Bag icon button (Always visible on mobile) */}
+                        {/* Mobile Add to Bag icon button (Always visible on mobile with comfortable touch target) */}
                         <button
                           onClick={(e) => handleQuickAdd(e, product)}
-                          className="sm:hidden w-8 h-8 rounded-full border border-[#B39868] bg-[#14221A] text-white flex items-center justify-center shadow-sm"
+                          className="sm:hidden w-9 h-9 rounded-full border border-[#B39868] bg-[#14221A] text-white flex items-center justify-center shadow-md active:scale-95 transition-transform"
                           aria-label="Add to bag"
                         >
-                          {isAdded ? <Check className="w-3.5 h-3.5" /> : <ShoppingBag className="w-3.5 h-3.5" />}
+                          {isAdded ? <Check className="w-4 h-4" /> : <ShoppingBag className="w-4 h-4" />}
                         </button>
 
                         <button

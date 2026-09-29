@@ -106,7 +106,7 @@ export function BookingModal({ isOpen, onClose, defaultServiceIndex = 0 }: Booki
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-2xl bg-[#FAFBF8] border border-[#B39868]/40 rounded-3xl p-6 sm:p-10 shadow-2xl z-10 overflow-hidden"
+            className="relative w-full max-w-2xl bg-[#FAFBF8] border border-[#B39868]/40 rounded-3xl p-5 sm:p-10 shadow-2xl z-10 overflow-y-auto my-4 sm:my-8 max-h-[92vh]"
           >
             {/* Top Close Button */}
             <button
