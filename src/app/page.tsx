@@ -7,6 +7,7 @@ import { DoctorServicesSection } from "@/components/ecosystem/DoctorServicesSect
 import { ConsultationPackagesSection } from "@/components/ecosystem/ConsultationPackagesSection";
 import { ApothecaryShopSection } from "@/components/ecosystem/ApothecaryShopSection";
 import { HealthToolsHubSection } from "@/components/ecosystem/HealthToolsHubSection";
+import { PersonalizedDietSection } from "@/components/ecosystem/PersonalizedDietSection";
 import { ClinicalJournalSection } from "@/components/ecosystem/ClinicalJournalSection";
 import { EcosystemVideoReviewsSection } from "@/components/ecosystem/EcosystemVideoReviewsSection";
 import { CustomerPortalSection } from "@/components/ecosystem/CustomerPortalSection";
@@ -47,8 +48,8 @@ export default function HomePage() {
         {/* 7. Dr Natures Apothecary: Books, Supplements, Herbal & Bundles */}
         <ApothecaryShopSection />
 
-        {/* 8. Health Tools Hub: Interactive BMI, BMR, Water & PCOS Risk Calculators */}
-        <HealthToolsHubSection />
+        {/* 8. Personalized Diet Plan: Step-by-step BMI assessment & diet funnel */}
+        <PersonalizedDietSection />
 
         {/* 9. Official YouTube Video Stories & Case Reviews */}
         <EcosystemVideoReviewsSection />
