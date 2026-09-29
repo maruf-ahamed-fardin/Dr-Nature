@@ -108,11 +108,11 @@ export function Footer() {
               <div className="w-12 h-12 rounded-full p-0.5 bg-gradient-to-br from-[#126336] via-[#B39868] to-[#FAFBF8] overflow-hidden shadow-md shrink-0">
                 <div className="w-full h-full rounded-full bg-white flex items-center justify-center p-0.5">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo-emblem.png"
                     alt="Dr. Natures Emblem"
                     width={48}
                     height={48}
-                    className="object-contain scale-110"
+                    className="object-contain"
                   />
                 </div>
               </div>
