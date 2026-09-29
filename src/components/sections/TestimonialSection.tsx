@@ -73,14 +73,14 @@ export function TestimonialSection() {
   const item = TESTIMONIALS[current];
 
   return (
-    <section id="testimonials" className="py-28 md:py-36 bg-[#FAFBF8] border-t border-[#B39868]/20 relative overflow-hidden">
+    <section id="testimonials" className="py-16 sm:py-24 md:py-36 bg-[#FAFBF8] border-t border-[#B39868]/20 relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#EEF2ED]/70 blur-3xl pointer-events-none" />
 
       <div className="container-app relative z-10 max-w-5xl">
         {/* Section Header Eyebrow */}
-        <div className="text-center mb-10">
-          <span className="text-[11px] font-body tracking-[0.28em] uppercase text-[#B39868] font-medium inline-flex items-center gap-2">
+        <div className="text-center mb-8 sm:mb-10">
+          <span className="text-[10px] sm:text-[11px] font-body tracking-[0.24em] sm:tracking-[0.28em] uppercase text-[#B39868] font-medium inline-flex items-center gap-2">
             <span>✦</span>
             <span>Documented Transformations</span>
             <span>✦</span>
@@ -88,14 +88,14 @@ export function TestimonialSection() {
         </div>
 
         {/* Editorial Testimonial Frame */}
-        <div className="relative border border-[#B39868]/30 rounded-3xl p-8 sm:p-14 lg:p-16 bg-white/70 backdrop-blur-md shadow-[0_20px_60px_rgba(31,43,37,0.05)]">
+        <div className="relative border border-[#B39868]/30 rounded-3xl p-6 sm:p-12 lg:p-16 bg-white/70 backdrop-blur-md shadow-[0_20px_60px_rgba(31,43,37,0.05)]">
           {/* Oversized Decorative Quotation Mark */}
-          <div className="absolute top-6 left-8 sm:top-8 sm:left-12 font-editorial text-7xl sm:text-8xl lg:text-9xl text-[#B39868]/20 leading-none select-none pointer-events-none">
+          <div className="absolute top-4 left-5 sm:top-8 sm:left-12 font-editorial text-6xl sm:text-8xl lg:text-9xl text-[#B39868]/15 leading-none select-none pointer-events-none">
             “
           </div>
 
           {/* Testimonial Content Transition */}
-          <div className="relative min-h-[300px] sm:min-h-[260px] flex flex-col justify-between">
+          <div className="relative min-h-[340px] sm:min-h-[260px] flex flex-col justify-between">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
@@ -103,10 +103,10 @@ export function TestimonialSection() {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 exit={{ opacity: 0, y: -16, filter: "blur(4px)" }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="space-y-8"
+                className="space-y-6 sm:space-y-8"
               >
                 {/* Star rating & protocol badge */}
-                <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4">
                   <div className="flex items-center gap-1.5">
                     {Array.from({ length: item.rating }).map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-[#B39868] text-[#B39868]" />
@@ -116,13 +116,13 @@ export function TestimonialSection() {
                     </span>
                   </div>
 
-                  <span className="px-3 py-1 rounded-full border border-[#B39868]/30 bg-[#EEF2ED]/60 text-[10px] font-body tracking-[0.2em] uppercase text-[#1F2B25]/80">
+                  <span className="px-3 py-1 rounded-full border border-[#B39868]/30 bg-[#EEF2ED]/60 text-[9px] sm:text-[10px] font-body tracking-[0.16em] sm:tracking-[0.2em] uppercase text-[#1F2B25]/80">
                     {item.protocol}
                   </span>
                 </div>
 
                 {/* Editorial Quote */}
-                <blockquote className="font-editorial text-2xl sm:text-3xl md:text-4xl text-[#1F2B25] font-light italic leading-relaxed sm:leading-snug">
+                <blockquote className="font-editorial text-lg sm:text-2xl md:text-3xl lg:text-4xl text-[#1F2B25] font-light italic leading-relaxed sm:leading-snug">
                   &ldquo;{item.quote}&rdquo;
                 </blockquote>
 

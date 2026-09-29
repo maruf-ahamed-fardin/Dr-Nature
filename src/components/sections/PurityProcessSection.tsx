@@ -45,24 +45,24 @@ export function PurityProcessSection() {
   const [coaModalOpen, setCoaModalOpen] = useState(false);
 
   return (
-    <section id="purity" className="py-28 md:py-36 bg-[#FAFBF8] border-t border-[#B39868]/20 relative overflow-hidden">
+    <section id="purity" className="py-16 sm:py-24 md:py-36 bg-[#FAFBF8] border-t border-[#B39868]/20 relative overflow-hidden">
       {/* Decorative subtle ambient circles */}
       <div className="absolute top-1/3 left-10 w-[450px] h-[450px] rounded-full bg-[#EEF2ED]/80 blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] rounded-full bg-[#E8EEF5]/40 blur-3xl pointer-events-none" />
 
       <div className="container-app relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
-          <span className="text-[11px] font-body tracking-[0.28em] uppercase text-[#B39868] font-medium inline-flex items-center gap-2 mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-20">
+          <span className="text-[10px] sm:text-[11px] font-body tracking-[0.24em] sm:tracking-[0.28em] uppercase text-[#B39868] font-medium inline-flex items-center gap-2 mb-2 sm:mb-3">
             <span>✦</span>
             <span>Uncompromising Botanical Science</span>
             <span>✦</span>
           </span>
-          <h2 className="font-editorial text-4xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-[1.08]">
+          <h2 className="font-editorial text-3xl sm:text-5xl md:text-6xl text-[#14221A] font-light leading-[1.08]">
             From Sacred Earth <br />
             <span className="italic text-[#B39868]">to Clinical Potency.</span>
           </h2>
-          <p className="font-body text-[#14221A]/70 text-xs sm:text-sm font-light mt-4 leading-relaxed max-w-lg mx-auto">
+          <p className="font-body text-[#14221A]/70 text-xs sm:text-sm font-light mt-3 sm:mt-4 leading-relaxed max-w-lg mx-auto">
             We reject the shortcuts of industrial mass production. Discover the four clinical pillars that define every Dr Natures botanical formulation.
           </p>
         </div>
@@ -85,6 +85,7 @@ export function PurityProcessSection() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 onMouseEnter={() => setActiveStep(index)}
+                onClick={() => setActiveStep(index)}
                 className={`relative arch-card p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 cursor-pointer ${
                   isSelected
                     ? "bg-[#EEF2ED] border-2 border-[#B39868] shadow-[0_20px_50px_rgba(20,34,26,0.07)]"
@@ -144,17 +145,17 @@ export function PurityProcessSection() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
             <button
               onClick={() => setCoaModalOpen(true)}
-              className="px-6 py-3 rounded-full border border-[#B39868] bg-white text-[#14221A] text-xs font-body tracking-[0.2em] uppercase hover:bg-[#14221A] hover:text-white transition-all shadow-sm flex items-center gap-2"
+              className="w-full sm:w-auto px-6 py-3 rounded-full border border-[#B39868] bg-white text-[#14221A] text-xs font-body tracking-[0.2em] uppercase hover:bg-[#14221A] hover:text-white transition-all shadow-sm flex items-center justify-center gap-2"
             >
               <FileText className="w-3.5 h-3.5 text-[#B39868]" />
               <span>Inspect Lab COA</span>
             </button>
             <a
               href="#formulations"
-              className="px-6 py-3 rounded-full bg-[#14221A] text-white text-xs font-body tracking-[0.2em] uppercase hover:bg-[#B39868] transition-colors"
+              className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#14221A] text-white text-xs font-body tracking-[0.2em] uppercase hover:bg-[#B39868] transition-colors text-center"
             >
               Explore Formulations
             </a>
