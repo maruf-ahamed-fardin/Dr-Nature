@@ -1,0 +1,2 @@
+import { IsBoolean, IsOptional, IsString, Length } from "class-validator";
+export class CreateAddressDto { @IsOptional() @IsString() label?:string; @IsString() @Length(2,120) recipient!:string; @IsString() @Length(7,20) phone!:string; @IsString() @Length(2,200) line1!:string; @IsOptional() @IsString() line2?:string; @IsString() @Length(2,80) city!:string; @IsOptional() @IsString() area?:string; @IsOptional() @IsString() postalCode?:string; @IsOptional() @IsBoolean() isDefault?:boolean; }
