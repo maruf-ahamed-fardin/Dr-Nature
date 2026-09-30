@@ -1,0 +1,18 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "feature/frontend-demo",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "feature/frontend-demo": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "feature/frontend-demo",
+    "origin"
+  ]
+}
