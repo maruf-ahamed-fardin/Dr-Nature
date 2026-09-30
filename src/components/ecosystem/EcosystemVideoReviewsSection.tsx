@@ -112,7 +112,6 @@ export function EcosystemVideoReviewsSection() {
   const [activeVideo, setActiveVideo] = useState<YouTubeVideoItem | null>(null);
   const [activeTab, setActiveTab] = useState<"all" | "patient-story" | "doctor-masterclass">("all");
 
-  // Close modal on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -140,28 +139,19 @@ export function EcosystemVideoReviewsSection() {
 
   return (
     <section id="video-stories" className="py-24 bg-gradient-to-b from-[#06261E] via-[#0D4035] to-[#06261E] text-white relative overflow-hidden border-t border-b border-[#10B981]/20">
-      {/* Background ambient light effects */}
       <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] rounded-full bg-[#10B981]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-[500px] h-[500px] rounded-full bg-[#F59E0B]/10 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
           <div className="max-w-2xl">
             <span className="px-3.5 py-1.5 rounded-full bg-red-950/70 border border-red-500/40 text-red-400 text-xs font-black tracking-widest uppercase inline-flex items-center gap-2 mb-3 shadow-xs">
               <i className="fa-brands fa-youtube text-red-500 text-sm" />
-              <span>Official YouTube Video Reviews & Clinical Stories</span>
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-serif-heading leading-tight">
-              Watch Real Journeys on YouTube
-            </h2>
-            <p className="text-white/70 text-sm sm:text-base mt-3 leading-relaxed">
-              আমাদের অফিসিয়াল ইউটিউব চ্যানেলে দেখুন রোগীদের সরাসরি ভিডিও সাক্ষাৎকার ও চিকিৎসকদের ক্লিনিক্যাল গাইডেন্স। 
-              কীভাবে রুট-কজ সমাধানের মাধ্যমে ক্রনিক স্বাস্থ্য সমস্যা দূর হয়েছে।
-            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-serif-heading leading-tight" />
+            <p className="text-white/70 text-sm sm:text-base mt-3 leading-relaxed" />
           </div>
 
-          {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="https://www.youtube.com"
@@ -184,13 +174,10 @@ export function EcosystemVideoReviewsSection() {
           </div>
         </div>
 
-        {/* Video Filter Navigation */}
         <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold font-serif-heading text-white">
-              Patient Recovery Stories &amp; Clinical Episodes
-            </h3>
-            <p className="text-white/60 text-xs mt-1">Click any video card below to watch in interactive cinema mode</p>
+            <h3 className="text-xl sm:text-2xl font-bold font-serif-heading text-white" />
+            <p className="text-white/60 text-xs mt-1" />
           </div>
 
           <div className="flex items-center gap-2">
@@ -214,7 +201,6 @@ export function EcosystemVideoReviewsSection() {
           </div>
         </div>
 
-        {/* ─── Videos Grid ─── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredVideos.map((video) => (
             <div
@@ -223,7 +209,6 @@ export function EcosystemVideoReviewsSection() {
               className="bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-[#10B981]/40 transition-all duration-300 flex flex-col justify-between group cursor-pointer hover:-translate-y-1 hover:shadow-xl"
             >
               <div>
-                {/* Video Card Thumbnail Frame */}
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-3.5 bg-black/60">
                   <Image
                     src={video.thumbnailUrl}
@@ -233,27 +218,23 @@ export function EcosystemVideoReviewsSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
-                  {/* Red Play Button in Center */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-11 h-11 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-115 transition-transform duration-200">
                       <i className="fa-solid fa-play text-sm ml-0.5" />
                     </div>
                   </div>
 
-                  {/* Duration Tag */}
                   <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-bold text-white flex items-center gap-1">
                     <i className="fa-regular fa-clock text-[#FBBF24] text-[9px]" />
                     <span>{video.duration}</span>
                   </div>
 
-                  {/* YouTube Tag */}
                   <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-red-600/90 text-[9px] font-extrabold uppercase text-white flex items-center gap-1">
                     <i className="fa-brands fa-youtube" />
                     <span>YouTube</span>
                   </div>
                 </div>
 
-                {/* Condition Tag */}
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded inline-block mb-2">
                   {video.condition}
                 </span>
@@ -267,7 +248,6 @@ export function EcosystemVideoReviewsSection() {
                 </p>
               </div>
 
-              {/* Footer info */}
               <div className="pt-3 mt-4 border-t border-white/10 flex items-center justify-between text-xs">
                 <div>
                   <h5 className="font-bold text-white text-[11px] leading-tight">
@@ -285,28 +265,22 @@ export function EcosystemVideoReviewsSection() {
           ))}
         </div>
 
-        {/* Trust Badges Strip */}
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-8 sm:gap-14 text-xs font-semibold text-white/70">
           <div className="flex items-center gap-2">
             <i className="fa-solid fa-shield-halved text-[#10B981] text-base" />
-            <span>100% Genuine, Unscripted Patient Experiences</span>
           </div>
           <div className="flex items-center gap-2">
             <i className="fa-solid fa-flask-vial text-[#FBBF24] text-base" />
-            <span>Verified Lab Biomarkers &amp; Clinical Recovery</span>
           </div>
           <div className="flex items-center gap-2">
             <i className="fa-brands fa-youtube text-red-500 text-base" />
-            <span>Weekly Health &amp; Dietary Masterclasses</span>
           </div>
         </div>
       </div>
 
-      {/* ─── Interactive YouTube Video Player Modal ─── */}
       {activeVideo && (
         <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-fade-in">
           <div className="relative w-full max-w-4xl bg-[#06261E] border border-white/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto">
-            {/* Modal Header */}
             <div className="px-5 py-3 sm:px-6 sm:py-4 border-b border-white/15 flex items-center justify-between bg-black/50">
               <div className="flex items-center gap-2.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
@@ -325,7 +299,6 @@ export function EcosystemVideoReviewsSection() {
               </button>
             </div>
 
-            {/* Embedded Responsive YouTube IFrame */}
             <div className="relative w-full aspect-video bg-black">
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${extractYouTubeId(activeVideo.youtubeId)}?autoplay=1&rel=0&modestbranding=1`}
@@ -336,7 +309,6 @@ export function EcosystemVideoReviewsSection() {
               />
             </div>
 
-            {/* Modal Bottom Metadata & Actions */}
             <div className="p-5 sm:p-6 bg-[#0D4035]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
